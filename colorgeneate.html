@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    function generateRandomColor(c){
+      //Get random single rgb values
+      var color1 = Math.round(Math.random()*255);
+      var color2 = Math.round(Math.random()*255);
+      var color3 = Math.round(Math.random()*255);
+      //Combine rgb values
+      var color = color1 +","+color2+","+color3;
+      //change background colour of text
+      if(c == "text"){
+        $("#text").css("color","rgb("+color+")");
+        var feedback = "rgb("+color+")";
+        $("#textcolor").text(feedback);
+      }
+      //Change background color of background div tag
+      else if(c == "background"){
+        $("#body2").css("background-color","rgb("+color+")");
+        var feedback = "rgb("+color+")";
+        $("#bgcolor").text(feedback);      
+      }
+    }
+  </script>
+</head>
+<body>
+<br>
+<a href="https://www.qngobeni.co.za">| Go back</a>
+<h1 style="text-align:center">Q's color generator.</h1><br>
+<div id="body2" style="background-color: black; width:90%;margin-left:5%" class="row">
+  <div class="col-sm-12">
+   <br><br><br><h1 id="text" style="color:white">This is text</h1><br><br><br>
+  </div>
+</div>
+<div class="row" style="width:90%;margin-left:5%">
+  <div class="col-sm-12">
+    <br>  
+    <button type="button" class="btn btn-secondary" onclick="generateRandomColor('background')">Random Background Color</button><br><br>
+    <button type="button" class="btn btn-secondary" onclick="generateRandomColor('text')">Random Text Color</button><br><br>
+  </div>
+</div>
+<div class="row" style="width:90%;margin-left:5%">
+  <div class="col-sm-12">
+    <div class="table-responsive">
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <td>Property</td>
+            <td>Value</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>bg-color</td>
+            <td id="bgcolor"> rgb(0,0,0)</td>
+          </tr>
+          <tr>
+            <td>text-color</td>
+            <td id="textcolor">rgb(255,255,255)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
